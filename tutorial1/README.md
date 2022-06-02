@@ -229,7 +229,7 @@ private func playerName(_ name: String?, withDefaultName defaultName: String) ->
 
 요약하자면, 이 튜토리얼에서는 Xcode 템플릿에서 새 RIB 를 생성하고, 인터페이스를 업데이트했으며 사용자가 입력한 데이터를 뷰 컨트롤러에서 interactor 로 전달하는 button tap event 에 대한 handler 를 추가했습니다. 이를 통해 이 두 unit 간의 책임을 분리하고 코드의 testability 를 개선할 수 있습니다.
 
-이제 tutorial 2 로 넘어갑니다.
+이제 [tutorial 2](https://github.com/uber/RIBs/wiki/iOS-Tutorial-2) 로 넘어갑니다.
 
 출처: 
 
