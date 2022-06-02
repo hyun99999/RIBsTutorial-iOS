@@ -27,7 +27,6 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     weak var router: LoggedOutRouting?
     weak var listener: LoggedOutListener?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
     override init(presenter: LoggedOutPresentable) {
         super.init(presenter: presenter)
@@ -42,5 +41,22 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    // TODO: Add additional dependencies to constructor. Do not perform any logic
+    
+    func login(withPlayer1Name player1Name: String?, player2Name: String?) {
+        let player1NameWithDefault = playerName(player1Name, withDefaultName: "Player 1")
+        let player2NameWithDefault = playerName(player2Name, withDefaultName: "Player 2")
+
+        print("\(player1NameWithDefault) vs \(player2NameWithDefault)")
+    }
+    
+    private func playerName(_ name: String?, withDefaultName defaultName: String) -> String {
+        if let name = name {
+            return name.isEmpty ? defaultName : name
+        } else {
+            return defaultName
+        }
     }
 }
