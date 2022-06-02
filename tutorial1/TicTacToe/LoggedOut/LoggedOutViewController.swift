@@ -74,8 +74,8 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         loginButton.backgroundColor = UIColor.black
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
-
+    
     @objc private func didTapLoginButton() {
-
+        listener?.login(withPlayer1Name: player1Field?.text, player2Name: player2Field?.text)
     }
 }
