@@ -16,33 +16,33 @@
 
 import RIBs
 
-protocol LoggedOutDependency: Dependency {
+protocol TicTacToeDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
 }
 
-final class LoggedOutComponent: Component<LoggedOutDependency> {
+final class TicTacToeComponent: Component<TicTacToeDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
 // MARK: - Builder
 
-protocol LoggedOutBuildable: Buildable {
-    func build(withListener listener: LoggedOutListener) -> LoggedOutRouting
+protocol TicTacToeBuildable: Buildable {
+    func build(withListener listener: TicTacToeListener) -> TicTacToeRouting
 }
 
-final class LoggedOutBuilder: Builder<LoggedOutDependency>, LoggedOutBuildable {
+final class TicTacToeBuilder: Builder<TicTacToeDependency>, TicTacToeBuildable {
 
-    override init(dependency: LoggedOutDependency) {
+    override init(dependency: TicTacToeDependency) {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: LoggedOutListener) -> LoggedOutRouting {
-        _ = LoggedOutComponent(dependency: dependency)
-        let viewController = LoggedOutViewController()
-        let interactor = LoggedOutInteractor(presenter: viewController)
+    func build(withListener listener: TicTacToeListener) -> TicTacToeRouting {
+        _ = TicTacToeComponent(dependency: dependency)
+        let viewController = TicTacToeViewController()
+        let interactor = TicTacToeInteractor(presenter: viewController)
         interactor.listener = listener
-        return LoggedOutRouter(interactor: interactor, viewController: viewController)
+        return TicTacToeRouter(interactor: interactor, viewController: viewController)
     }
 }

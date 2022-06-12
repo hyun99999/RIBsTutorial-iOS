@@ -1,29 +1,41 @@
 //
-//  LoggedOutViewController.swift
-//  TicTacToe
+//  Copyright (c) 2017. Uber Technologies
 //
-//  Created by kimhyungyu on 2022/06/02.
-//  Copyright © 2022 Uber. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
-import SnapKit
 import RIBs
+import RxCocoa
 import RxSwift
+import SnapKit
 import UIKit
 
 protocol LoggedOutPresentableListener: AnyObject {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
-    func login(withPlayer1Name player1Name: String?, player2Name: String?)
+    func login(withPlayer1Name: String?, player2Name: String?)
 }
 
 final class LoggedOutViewController: UIViewController, LoggedOutPresentable, LoggedOutViewControllable {
 
     weak var listener: LoggedOutPresentableListener?
-    
-    // MARK: - Tutorial 1
-    
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Method is not supported")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +46,8 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
 
     // MARK: - Private
 
-    private var player1Field: UITextField?
-    private var player2Field: UITextField?
-
     private func buildPlayerFields() -> (player1Field: UITextField, player2Field: UITextField) {
         let player1Field = UITextField()
-        self.player1Field = player1Field
         player1Field.borderStyle = UITextBorderStyle.line
         view.addSubview(player1Field)
         player1Field.placeholder = "Player 1 name"
@@ -50,7 +58,6 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         }
 
         let player2Field = UITextField()
-        self.player2Field = player2Field
         player2Field.borderStyle = UITextBorderStyle.line
         view.addSubview(player2Field)
         player2Field.placeholder = "Player 2 name"
@@ -72,10 +79,12 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         loginButton.setTitle("Login", for: .normal)
         loginButton.setTitleColor(UIColor.white, for: .normal)
         loginButton.backgroundColor = UIColor.black
-        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        loginButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.listener?.login(withPlayer1Name: player1Field.text, player2Name: player2Field.text)
+            })
+            .disposed(by: disposeBag)
     }
-    
-    @objc private func didTapLoginButton() {
-        listener?.login(withPlayer1Name: player1Field?.text, player2Name: player2Field?.text)
-    }
+
+    private let disposeBag = DisposeBag()
 }

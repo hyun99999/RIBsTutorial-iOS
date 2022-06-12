@@ -8,3 +8,7 @@ target 'TicTacToe' do
   pod 'SnapKit'
   pod 'RxCocoa'
 end
+
+target 'TicTacToeTests' do
+    pod 'RIBs'
+end
