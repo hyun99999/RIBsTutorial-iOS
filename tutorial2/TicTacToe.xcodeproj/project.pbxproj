@@ -30,6 +30,10 @@
 		F86291612855EABA00D7E609 /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862915E2855EABA00D7E609 /* LoggedInRouter.swift */; };
 		F86291622855EABA00D7E609 /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862915F2855EABA00D7E609 /* LoggedInBuilder.swift */; };
 		F86291632855EABA00D7E609 /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86291602855EABA00D7E609 /* LoggedInInteractor.swift */; };
+		F8A7E4E828578B6400A60174 /* OffGameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4E428578B6400A60174 /* OffGameRouter.swift */; };
+		F8A7E4E928578B6400A60174 /* OffGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4E528578B6400A60174 /* OffGameViewController.swift */; };
+		F8A7E4EA28578B6400A60174 /* OffGameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4E628578B6400A60174 /* OffGameBuilder.swift */; };
+		F8A7E4EB28578B6400A60174 /* OffGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A7E4E728578B6400A60174 /* OffGameInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		F862915E2855EABA00D7E609 /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		F862915F2855EABA00D7E609 /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		F86291602855EABA00D7E609 /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
+		F8A7E4E428578B6400A60174 /* OffGameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffGameRouter.swift; sourceTree = "<group>"; };
+		F8A7E4E528578B6400A60174 /* OffGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffGameViewController.swift; sourceTree = "<group>"; };
+		F8A7E4E628578B6400A60174 /* OffGameBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffGameBuilder.swift; sourceTree = "<group>"; };
+		F8A7E4E728578B6400A60174 /* OffGameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffGameInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 			children = (
 				7EDD59511FA135E9005EC8B2 /* Resources */,
 				E9CB1D331F972FD500D84847 /* AppStart */,
+				F8A7E4E328578B4700A60174 /* OffGame */,
 				E9CB1D471F972FE500D84847 /* LoggedIn */,
 				E9CB1D421F972FE400D84847 /* LoggedOut */,
 				E9CB1D361F972FE400D84847 /* Root */,
@@ -223,6 +232,17 @@
 				D008FD5813F6BDE9C4955F5C /* Pods_TicTacToeTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8A7E4E328578B4700A60174 /* OffGame */ = {
+			isa = PBXGroup;
+			children = (
+				F8A7E4E428578B6400A60174 /* OffGameRouter.swift */,
+				F8A7E4E528578B6400A60174 /* OffGameViewController.swift */,
+				F8A7E4E628578B6400A60174 /* OffGameBuilder.swift */,
+				F8A7E4E728578B6400A60174 /* OffGameInteractor.swift */,
+			);
+			path = OffGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,10 +446,14 @@
 				E9CB1D671F9730F300D84847 /* TicTacToeBuilder.swift in Sources */,
 				E9CB1D6A1F9730F300D84847 /* TicTacToeViewController.swift in Sources */,
 				E9CB1D531F97305A00D84847 /* AppComponent.swift in Sources */,
+				F8A7E4EA28578B6400A60174 /* OffGameBuilder.swift in Sources */,
 				F86291632855EABA00D7E609 /* LoggedInInteractor.swift in Sources */,
+				F8A7E4E928578B6400A60174 /* OffGameViewController.swift in Sources */,
 				E9CB1D621F9730EF00D84847 /* RootComponent+LoggedIn.swift in Sources */,
 				E9CB1D5C1F9730E700D84847 /* LoggedOutViewController.swift in Sources */,
+				F8A7E4E828578B6400A60174 /* OffGameRouter.swift in Sources */,
 				E9CB1D691F9730F300D84847 /* TicTacToeRouter.swift in Sources */,
+				F8A7E4EB28578B6400A60174 /* OffGameInteractor.swift in Sources */,
 				E9CB1D651F9730EF00D84847 /* RootRouter.swift in Sources */,
 				E9CB1D661F9730EF00D84847 /* RootViewController.swift in Sources */,
 			);
