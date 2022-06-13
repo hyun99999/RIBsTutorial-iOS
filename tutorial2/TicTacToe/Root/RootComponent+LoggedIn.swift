@@ -26,7 +26,7 @@ protocol RootDependencyLoggedIn: Dependency {
 
 extension RootComponent: LoggedInDependency {
 
-    var loggedInViewController: LoggedInViewControllable {
+    var LoggedInViewController: LoggedInViewControllable {
         return rootViewController
     }
 }
