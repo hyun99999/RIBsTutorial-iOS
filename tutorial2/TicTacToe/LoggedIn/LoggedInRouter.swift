@@ -8,7 +8,7 @@
 
 import RIBs
 
-protocol LoggedInInteractable: Interactable {
+protocol LoggedInInteractable: Interactable, OffGameListener {
     var router: LoggedInRouting? { get set }
     var listener: LoggedInListener? { get set }
 }
@@ -34,9 +34,23 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
         // TODO: Since this router does not own its view, it needs to cleanup the views
         // it may have added to the view hierarchy, when its interactor is deactivated.
     }
+    
+    override func didLoad() {
+        super.didLoad()
+        attachOffGame()
+    }
 
     // MARK: - Private
 
     private let viewController: LoggedInViewControllable
     private let offGameBuilder: OffGameBuildable
+    
+    private var currentChild: ViewableRouting?
+
+    private func attachOffGame() {
+        let offGame = offGameBuilder.build(withListener: interactor)
+        self.currentChild = offGame
+        attachChild(offGame)
+        viewController.present(viewController: offGame.viewControllable)
+    }
 }

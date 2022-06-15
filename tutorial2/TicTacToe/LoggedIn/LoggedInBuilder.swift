@@ -44,7 +44,7 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
 
         let offGameBuilder = OffGameBuilder(dependency: component)
         return LoggedInRouter(interactor: interactor,
-                              viewController: component.loggedInViewController,
+                              viewController: component.LoggedInViewController,
                               offGameBuilder: offGameBuilder)
     }
 }
